@@ -32,9 +32,14 @@ public class RepairSchedule
         int index = 0;
         boolean open = true; //conditional used to evaluate both m & b open spots
         //does this do a matrix search?
-        while (schedule.getMechanicNum(index) != m || schedule.getBayNum(index) != b)
-
-
+        while (open){
+            if (schedule.get(index).getMechanicNum() == m || schedule.get(index).getBayNum() == b){
+                open = false;
+            }
+            index++;
+        }
+        schedule.add(m, b); //madness combat? game
+        return true;
 
     }
 
